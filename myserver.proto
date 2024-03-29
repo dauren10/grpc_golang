@@ -1,0 +1,24 @@
+syntax = "proto3";
+option go_package = "github.com/dauren10/demo-grpc/myserver";
+
+message Sum{
+    int64 price = 1;
+    string currency = 2;
+}
+
+message CreateRequest{
+    Sum sum  = 1;
+    string from = 2;
+    string to = 3;  
+}
+
+message CreateResponse{
+    bytes number = 1;
+    bytes price = 2;
+    bytes Amount =3;
+
+}
+
+service MyService{
+    rpc Create(CreateRequest) returns (CreateResponse);
+}
